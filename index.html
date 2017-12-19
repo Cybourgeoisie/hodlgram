@@ -1,0 +1,138 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>HODLGram - Gift Time-Locked Cryptocurrency</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="" />
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha256-QUyqZrt5vIjBumoqQV0jM8CgGqscFfdGhN+nVCqX0vc=" crossorigin="anonymous" />
+
+	<!-- jQuery UI -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous" />
+
+	<!-- Font Awesome -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<!-- Bootstrap Date Range Picker -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.css" integrity="sha256-RqJuUJ19HEfsKUNMC+6GLSatrHeroWygib75lro4BMU=" crossorigin="anonymous" />
+
+	<!-- Cryptocoins Icons -->
+	<link rel="stylesheet" href="./cryptocoins/webfont/cryptocoins.css" />
+	<link rel="stylesheet" href="./cryptocoins/webfont/cryptocoins-colors.css" />
+
+	<!-- Primary CSS -->
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body class="crypto-css btc">
+
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-expand navbar-dark fixed-top">
+		<div id="navbarTop">
+			<ul class="navbar-nav">
+				<li class="crypto-css btc nav-item">
+					<a class="crypto-css btc nav-link page-toggle" href="#btc">Bitcoin</a>
+				</li>
+				<li class="crypto-css btc nav-item">
+					<a class="crypto-css btc nav-link page-toggle" href="#ltc">Litecoin</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Primary content -->
+	<main role="main" class="container">
+
+		<!-- Generation -->
+		<div class="div-page div-page-btc home-body">
+			<h1 style="font-style:italic;">
+				<span style="font-weight:bold;">H<i class="cc-current-logo cc BTC" title="BTC"></i>DL</span>gram
+			</h1>
+			<p class="lead">
+				<small>
+					Create a time-locked Bitcoin address for short and long-term investments
+				</small>
+			</p><br />
+			<p>
+				<div class="form-group row">
+					<label for="publickey" class="col-sm-3 col-form-label">Public Key</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control publickey" placeholder="Enter Public Key">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="unlocktime" class="col-sm-3 col-form-label">Unlock Time</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control unlocktime" />
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Generate Redemption Script</button>
+			</p>
+		</div>
+
+		<!-- LTC Generation -->
+		<div class="div-page div-page-ltc home-body" style="display:none;">
+			<h1 style="font-style:italic;">
+				<span style="font-weight:bold;">H<i class="cc LTC" title="LTC"></i>DL</span>gram
+			</h1>
+			<p class="lead">
+				<small>
+					Create a time-locked Litecoin address for short and long-term investments
+				</small>
+			</p><br />
+			<p>
+				<div class="form-group row">
+					<label for="publickey" class="col-sm-3 col-form-label">Public Key</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control publickey" placeholder="Enter Public Key">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="unlocktime" class="col-sm-3 col-form-label">Unlock Time</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control unlocktime" />
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Generate Redemption Script</button>
+			</p>
+		</div>
+	</main>
+
+	<footer class="footer crypto-css btc">
+		<div class="container">
+			<span style="color:rgba(255,255,255,.75);">
+				&copy; 2017 Jumfuckers Gone Rogue, LTD
+			</span><br />
+		</div>
+	</footer>
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+	<!-- Popper -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js" integrity="sha256-/GXjBGBWRx8/y1Be190w3hrUOFXNs9qPhthi0tbNnG8=" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha256-GIa8Vh3sfESnVB2CN3rYGkD/MklvMq0lmITweQxE1qU=" crossorigin="anonymous"></script>
+
+	<!-- Moment.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" integrity="sha256-1hjUhpc44NwiNg8OwMu2QzJXhD8kcj+sJA3aCQZoUjg=" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap Date Range Picker -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.js" integrity="sha256-WniDtKHyk2OPgNtTFKu/sL8zGBzmCfMcmEKRAqfi25c=" crossorigin="anonymous"></script>
+
+	<!-- Local Javascript -->
+	<script src="./js/index.js"></script>
+
+	<!-- Logic -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			boot();
+		});
+	</script>
+
+</body>
+</html>
