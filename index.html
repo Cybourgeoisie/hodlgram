@@ -27,17 +27,20 @@
 	<!-- Primary CSS -->
 	<link href="css/style.css" rel="stylesheet">
 </head>
-<body class="crypto-css btc">
+<body class="crypto-css BTC">
 
 	<!-- Navigation Bar -->
 	<nav class="navbar navbar-expand navbar-dark fixed-top">
 		<div id="navbarTop">
 			<ul class="navbar-nav">
-				<li class="crypto-css btc nav-item">
-					<a class="crypto-css btc nav-link page-toggle" href="#btc">Bitcoin</a>
+				<li class="crypto-css BTC nav-item">
+					<a class="crypto-css BTC nav-link coin-toggle" data-coin="BTC" href="#">Bitcoin</a>
 				</li>
-				<li class="crypto-css btc nav-item">
-					<a class="crypto-css btc nav-link page-toggle" href="#ltc">Litecoin</a>
+				<li class="crypto-css BTC nav-item">
+					<a class="crypto-css BTC nav-link coin-toggle" data-coin="LTC" href="#">Litecoin</a>
+				</li>
+				<li class="crypto-css BTC nav-item">
+					<a class="crypto-css BTC nav-link coin-toggle" data-coin="DCR" href="#">Decred</a>
 				</li>
 			</ul>
 		</div>
@@ -46,65 +49,137 @@
 	<!-- Primary content -->
 	<main role="main" class="container">
 
-		<!-- Generation -->
-		<div class="div-page div-page-btc home-body">
+		<div class="div-header home-header">
 			<h1 style="font-style:italic;">
-				<span style="font-weight:bold;">H<i class="cc-current-logo cc BTC" title="BTC"></i>DL</span>gram
+				<span style="font-weight:bold;">H<i class="cryptocoin-logo cc BTC" style="padding: 0; margin: 0px 2px 0px 10px"></i>DL</span>gram
 			</h1>
 			<p class="lead">
 				<small>
-					Create a time-locked Bitcoin address for short and long-term investments
+					Create a time-locked address for short and long-term investments
 				</small>
-			</p><br />
-			<p>
-				<div class="form-group row">
-					<label for="publickey" class="col-sm-3 col-form-label">Public Key</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control publickey" placeholder="Enter Public Key">
-					</div>
+			</p>
+			<p class="lead">
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<button type="button" class="btn btn-secondary crypto-css BTC page-toggle active" data-page="create">Create</button>
+					<button type="button" class="btn btn-secondary crypto-css BTC page-toggle active" data-page="verify">Verify</button>
+					<button type="button" class="btn btn-secondary crypto-css BTC page-toggle" data-page="redeem">Redeem</button>
 				</div>
-				<div class="form-group row">
-					<label for="unlocktime" class="col-sm-3 col-form-label">Unlock Time</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control unlocktime" />
-					</div>
-				</div>
-				<button type="submit" class="btn btn-primary">Generate Redemption Script</button>
 			</p>
 		</div>
 
-		<!-- LTC Generation -->
-		<div class="div-page div-page-ltc home-body" style="display:none;">
-			<h1 style="font-style:italic;">
-				<span style="font-weight:bold;">H<i class="cc LTC" title="LTC"></i>DL</span>gram
-			</h1>
-			<p class="lead">
-				<small>
-					Create a time-locked Litecoin address for short and long-term investments
-				</small>
-			</p><br />
+		<!-- Generate -->
+		<div class="div-page div-page-create home-body">
 			<p>
 				<div class="form-group row">
 					<label for="publickey" class="col-sm-3 col-form-label">Public Key</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control publickey" placeholder="Enter Public Key">
+						<input type="text" class="form-control" id="publickey" placeholder="Enter Public Key" />
+						<div class="alert alert-danger error-message" style="display:none" role="alert"></div>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label for="unlocktime" class="col-sm-3 col-form-label">Unlock Time</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control unlocktime" />
+						<input type="text" class="form-control" id="unlocktime" required/>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Generate Redemption Script</button>
+				<button type="submit" class="btn btn-secondary crypto-css BTC" id="generateRedeemScript">Generate Redemption Script</button>
+			</p>
+		</div>
+
+		<!-- Retrieve Generated Address & Redeem Script -->
+		<div class="div-page div-page-generated home-body">
+			<p>
+				<div class="form-group row">
+					<label for="redeemscript-generated" class="col-sm-3 col-form-label">Redeem Script</label>
+					<div class="col-sm-9 input-group">
+						<input class="form-control redeemscript-generated" readonly="readonly" />
+						<button class="input-group-addon copyButton" data-copy-input="redeemscript-generated">
+							<i class="fa fa-clipboard" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="publicaddress-generated" class="col-sm-3 col-form-label">Public Address</label>
+					<div class="col-sm-9 input-group">
+						<input type="text" readonly="readonly" class="form-control publicaddress-generated" placeholder="Waiting for redeem script..." />
+						<button class="input-group-addon copyButton" data-copy-input="publicaddress-generated">
+							<i class="fa fa-clipboard" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="verifyurl-generated" class="col-sm-3 col-form-label">Bookmark URL</label>
+					<div class="col-sm-9 input-group">
+						<input type="text" readonly="readonly" class="form-control verifyurl-generated" placeholder="Waiting for redeem script..." />
+						<button class="input-group-addon copyButton" data-copy-input="verifyurl-generated">
+							<i class="fa fa-clipboard" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+			</p>
+		</div>
+
+		<!-- Verify -->
+		<div class="div-page div-page-verify home-body" style="display:none;">
+			<p>
+				<div class="form-group row">
+					<label for="redeemscript-verify" class="col-sm-3 col-form-label">Redeem Script</label>
+					<div class="col-sm-9">
+						<textarea class="form-control redeemscript-verify" rows="2"></textarea>
+					</div>
+				</div>
+				<p>
+					<button type="submit" class="btn btn-secondary crypto-css BTC" id="verifyRedeemScript">Verify Redemption Script</button>
+				</p>
+				<div class="form-group row">
+					<label for="publicaddress-verify" class="col-sm-3 col-form-label">Public Address</label>
+					<div class="col-sm-9 input-group">
+						<input type="text" readonly="readonly" class="form-control publicaddress-verify" placeholder="Waiting for redeem script..." />
+						<button class="input-group-addon copyButton" data-copy-input="publicaddress-verify">
+							<i class="fa fa-clipboard" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="reqsig-verify" class="col-sm-3 col-form-label">Required Signature</label>
+					<div class="col-sm-9">
+						<input type="text" readonly="readonly" class="form-control reqsig-verify" placeholder="Waiting for redeem script..." />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="unlocktime-verify" class="col-sm-3 col-form-label">Unlock Time</label>
+					<div class="col-sm-9">
+						<input type="text" readonly="readonly" class="form-control unlocktime-verify" placeholder="Waiting for redeem script..." />
+					</div>
+				</div>
+			</p>
+		</div>
+
+		<!-- Redeem -->
+		<div class="div-page div-page-redeem home-body" style="display:none;">
+			<p>
+				<div class="form-group row">
+					<label for="privatekey" class="col-sm-3 col-form-label">Private Key</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control privatekey" placeholder="Enter Private Key">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="redeemscript" class="col-sm-3 col-form-label">Redeem Script</label>
+					<div class="col-sm-9">
+						<textarea class="form-control redeemscript" rows="2"></textarea>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-secondary crypto-css BTC">Sign Redemption Script</button>
 			</p>
 		</div>
 	</main>
 
-	<footer class="footer crypto-css btc">
+	<footer class="footer crypto-css BTC">
 		<div class="container">
-			<span style="color:rgba(255,255,255,.75);">
-				&copy; 2017 Jumfuckers Gone Rogue, LTD
+			<span>
+				&copy; 2017 JGR, LTD.
 			</span><br />
 		</div>
 	</footer>
@@ -124,7 +199,23 @@
 	<!-- Bootstrap Date Range Picker -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.js" integrity="sha256-WniDtKHyk2OPgNtTFKu/sL8zGBzmCfMcmEKRAqfi25c=" crossorigin="anonymous"></script>
 
+	<!-- Coinbin -->
+	<script type="text/javascript" src="./coinbin/js/crypto-min.js"></script>
+	<script type="text/javascript" src="./coinbin/js/crypto-sha256.js"></script>
+	<script type="text/javascript" src="./coinbin/js/crypto-sha256-hmac.js"></script>
+	<script type="text/javascript" src="./coinbin/js/sha512.js"></script>
+	<script type="text/javascript" src="./coinbin/js/ripemd160.js"></script>
+	<script type="text/javascript" src="./coinbin/js/aes.js"></script>
+
+	<script type="text/javascript" src="./coinbin/js/qrcode.js"></script>
+	<script type="text/javascript" src="./coinbin/js/qcode-decoder.min.js"></script>
+	<script type="text/javascript" src="./coinbin/js/jsbn.js"></script>
+	<script type="text/javascript" src="./coinbin/js/ellipticcurve.js"></script>
+
+	<script type="text/javascript" src="./coinbin/js/coin.js"></script>
+
 	<!-- Local Javascript -->
+	<script src="./js/generateRedeemScript.js"></script>
 	<script src="./js/index.js"></script>
 
 	<!-- Logic -->

@@ -18,8 +18,13 @@ h1 {
   font-size: 80px;
 }
 
+.home-header {
+  padding: 0rem 1rem 1rem 1rem;
+  text-align: center;
+}
+
 .home-body {
-  padding: 2rem 1.5rem;
+  padding: 0rem 0rem 2rem 0rem;
   text-align: center;
 }
 
@@ -48,13 +53,14 @@ h1 {
 }
 
 @media (max-width: 767px) {
-  .home-body {
-    padding: 0rem 0rem 2rem 0rem;
+  .home-header {
+    padding: 0rem;
     text-align: center;
   }
 
-  .nav-item {
-    padding: 0 10px 5px 10px;
+  .home-body {
+    padding: 0rem 0rem 2rem 0rem;
+    text-align: center;
   }
 
   .btn {
@@ -69,57 +75,145 @@ h1 {
   }
 }
 
+.alert {
+  padding: 6px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+
+.btn-primary:not([disabled]):not(.disabled).active, .btn-primary:not([disabled]):not(.disabled):active, .show>.btn-primary.dropdown-toggle,
+.btn-secondary:not([disabled]):not(.disabled).active, .btn-secondary:not([disabled]):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+  box-shadow:none;
+}
+
 /*** Crypto-specific settings ***/
 
 /* Bitcoin */
-  body, body.btc {
+  body, body.BTC {
     background-color: #0d579b;
     color: #ffffff;
   }
 
-  .footer, .footer.btc {
+  .footer, .footer.BTC {
     color: #fff;
     background-color: #4d4d4d;
   }
 
   .nav-link,
-  .nav-link.btc,
-  .navbar-dark .navbar-nav .nav-link.btc {
+  .nav-link.BTC,
+  .navbar-dark .navbar-nav .nav-link.BTC {
     color: #fffff;
   }
 
-  #navbarTop li.btc:hover {
-    background-color: #f7931a;
+  #navbarTop li.BTC:hover {
+    background-color:#f7931a;
+  }
+
+  .btn-secondary.BTC {
+    background-color:#003E82;
+    color: #fff;
+    border-color: #002468;
+  }
+
+  .btn-secondary.BTC:not([disabled]):not(.disabled).active,
+  .btn-secondary.BTC:not([disabled]):not(.disabled):active,
+  .show>.btn-secondary.BTC.dropdown-toggle,
+  .btn-secondary.BTC:hover {
+    background-color:#f7931a;
+    color: #fff;
+    border-color: #FFAD34;
   }
 
 /* Litecoin */
-  body.ltc {
+  body.LTC {
     background-color: #ffffff;
     color: #000000;
   }
 
-  .footer.ltc {
+  .footer.LTC {
     color: #fff;
     background-color: #027ce8;
   }
 
-  .nav-link.ltc, .navbar-dark .navbar-nav .nav-link.ltc {
+  .nav-link.LTC, .navbar-dark .navbar-nav .nav-link.LTC {
     color: #838383;
   }
 
-  .nav-link.ltc:hover, .navbar-dark .navbar-nav .nav-link.ltc:hover {
+  .nav-link.LTC:hover, .navbar-dark .navbar-nav .nav-link.LTC:hover {
     color: #fff;
   }
 
-  #navbarTop li.active.ltc {
+  #navbarTop li.active.LTC {
     background-color: #E3E3E3;
     color: #fff;
   }
 
-  #navbarTop li.ltc:hover {
+  #navbarTop li.LTC:hover {
     background-color: #027ce8;
     color: #fff;
   }
 
+  .btn-secondary.LTC {
+    background-color: #B0B0B0;
+    color: #fff;
+    border-color: #979797;
+  }
+
+  .btn-secondary.LTC:not([disabled]):not(.disabled).active,
+  .btn-secondary.LTC:not([disabled]):not(.disabled):active,
+  .show>.btn-secondary.LTC.dropdown-toggle,
+  .btn-secondary.LTC:hover {
+    background-color: #027ce8;
+    color: #fff;
+    border-color: #1C96FF;
+  }
+
+/* Litecoin */
+  body.DCR {
+    background-color: #f4f7f9;
+    color: #0C1E3E;
+  }
+
+  .footer.DCR {
+    color: #fff;
+    background-color: #263858;
+  }
+
+  .nav-link.DCR, .navbar-dark .navbar-nav .nav-link.DCR {
+    color: #0C1E3E;
+  }
+
+  .nav-link.DCR:hover, .navbar-dark .navbar-nav .nav-link.DCR:hover{
+    color: #fff;
+  }
+
+  #navbarTop li.active.DCR {
+    background-color: #2ED6A1;
+  }
+
+  #navbarTop li.active.DCR .nav-link {
+    color: #fff;
+  }
+
+  #navbarTop li.DCR:hover {
+    background-color: #FD714A;
+    color: #fff;
+  }
+
+  .btn-secondary.DCR {
+    background-color:#2971FF;
+    color: #fff;
+    border-color:#1058E6;
+  }
+
+  .btn-secondary.DCR:not([disabled]):not(.disabled).active,
+  .btn-secondary.DCR:not([disabled]):not(.disabled):active,
+  .show>.btn-secondary.DCR.dropdown-toggle,
+  .btn-secondary.DCR:hover {
+    background-color:#2ED6A1;
+    color: #fff;
+    border-color:#48F0BB;
+  }
 
 /*** End crypto-specific settings ***/

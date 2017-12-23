@@ -1,3 +1,6 @@
 [submodule "cryptocoins"]
 	path = cryptocoins
 	url = https://github.com/allienworks/cryptocoins.git
+[submodule "coinbin"]
+	path = coinbin
+	url = https://github.com/OutCast3k/coinbin.git
